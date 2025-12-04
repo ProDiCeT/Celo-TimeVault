@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
-contract TimeVaultNFT is ERC721URIStorage, ReentrancyGuard {
+contract Celo-TimeVault is ERC721URIStorage, ReentrancyGuard {
     struct Vault {
         address owner;
         uint256 amount;
@@ -42,10 +42,10 @@ contract TimeVaultNFT is ERC721URIStorage, ReentrancyGuard {
         address indexed owner
     );
 
-    constructor() ERC721("TimeVault Proof", "TVLT") {}
+    constructor() ERC721("Celo-TimeVault", "CTV") {}
 
     /**
-     * @notice Deposits ETH into a time-locked vault and mints an NFT as proof
+     * @notice Deposits CELO into a time-locked vault and mints an NFT as proof
      * @param unlockTime Unlock timestamp
      * @param tokenURI Metadata URI of the NFT
      */
@@ -162,7 +162,7 @@ contract TimeVaultNFT is ERC721URIStorage, ReentrancyGuard {
     }
 
     /**
-     * @notice Function to receive accidental ETH (rejects)
+     * @notice Function to receive accidental CELO (rejects)
      */
     receive() external payable {
         revert("Use deposit() function");
